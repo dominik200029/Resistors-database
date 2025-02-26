@@ -1,0 +1,247 @@
+﻿<Window x:Class="Rezystory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rezystory"
+        mc:Ignorable="d"
+        Title="Bazy Rezystorow v1.0.2"
+        xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Loaded="Window_Loaded"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow" AllowsTransparency="False" Background="Transparent" WindowStartupLocation="CenterScreen"  Foreground="White" Height="1000" Width="1500">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Bazy rezystorów">
+                <Grid Opacity="0.99" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Margin="0,0,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="1145*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="77*"/>
+                        <RowDefinition Height="598*"/>
+                        <RowDefinition Height="51*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Opacity="0.95" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Margin="0,0,0,5" Grid.Row="1" Grid.ColumnSpan="3" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="461*"/>
+                            <ColumnDefinition Width="237*"/>
+                            <ColumnDefinition Width="221*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="85*"/>
+                            <RowDefinition Height="86*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1" Grid.Column="2">
+                            <Label Content="Dane z wybranego okresu:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="19" FontFamily="Arial" Margin="4,0,0,0" FontWeight="Bold" />
+                            <TextBlock x:Name="tbPeriodSum" Text="Razem sztuk:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodAA" Text="AA:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodA" Text="A:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodB" Text="B:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodC" Text="C:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial"/>
+                            <TextBlock x:Name="tbPeriodD" Text="D:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodE" Text="E:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodF" Text="F:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodG" Text="G:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="20" FontFamily="Arial" />
+                            <TextBlock x:Name="tbPeriodFi" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="28" FontFamily="Arial" Height="34" Margin="10,0,0,0" VerticalAlignment="Top"><Run Language="pl-pl" Text="∅:"/></TextBlock>
+                            <TextBlock x:Name="tbPeriodSd" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="28" FontFamily="Arial" Height="36" Margin="10,0,0,0"><Run Language="pl-pl" Text="SD:"/></TextBlock>
+
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="19" FontFamily="Arial" Margin="4,0,0,0" Content="Dane z wybranego badania:" FontWeight="Bold" />
+                            <TextBlock x:Name="tbSztuk" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Margin="4,0,0,0"><Run Language="pl-pl" Text="Razem sztuk:"/></TextBlock>
+                            <TextBlock x:Name="tbAA" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="AA:"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                            <TextBlock x:Name="tbA" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="A:"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                            <TextBlock x:Name="tbB" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="B:"/></TextBlock>
+                            <TextBlock x:Name="tbC" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="C"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
+                            <TextBlock x:Name="tbD" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="D"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
+                            <TextBlock x:Name="tbE" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="E"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
+                            <TextBlock x:Name="tbF" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="F"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
+                            <TextBlock x:Name="tbG" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="20" FontFamily="Arial" Height="24" Margin="10,0,0,0"><Run Language="pl-pl" Text="G:"/></TextBlock>
+                            <TextBlock x:Name="tbFi" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="28" FontFamily="Arial" Height="34" Margin="10,0,0,0" VerticalAlignment="Top"><Run Language="pl-pl" Text="∅:"/></TextBlock>
+                            <TextBlock x:Name="tbSd" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="28" FontFamily="Arial" Height="36" Margin="10,0,0,0"><Run Language="pl-pl" Text="SD:"/></TextBlock>
+                        </StackPanel>
+                        <!-- Background -->
+                        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+                            <!-- StackPanel for tbFi and tbSd at the bottom -->
+                            <StackPanel Orientation="Vertical">
+
+                            </StackPanel>
+                            <!-- StackPanel for the main set of TextBlocks -->
+
+                            <!-- StackPanel for tbFi and tbSd at the bottom -->
+                        </StackPanel>
+
+                        <Border Background="#FF1F1F1F" Margin="0,10,0,10" CornerRadius="10,10,10,10" Grid.Row="0">
+                            <DataGrid x:Name="dataGrid_Badania" d:ItemsSource="{d:SampleData ItemCount=5}"
+                          SelectionChanged="dataGrid_Badania_SelectionChanged"/>
+                        </Border>
+                        <Border Background="#FF1F1F1F" Margin="0,4,0,10" CornerRadius="10,10,10,10" Grid.Row="1">
+                            <DataGrid x:Name="dataGrid_Id" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                        </Border>
+                        <local:LinChart x:Name="fiChart" Grid.ColumnSpan="2" Margin="10,0,10,0" Grid.Column="1" Height="317" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="cbLogLin" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" Width="314" Height="25" VerticalAlignment="Top" SelectedIndex="0" SelectionChanged="cbLogLin_SelectionChanged">
+                            <ComboBoxItem Content="Liniowy"/>
+                            <!-- <ComboBoxItem Content="Logarytmiczny"/> -->
+                        </ComboBox>
+                        <ComboBox x:Name="cbFiSD" Grid.Column="2" Margin="0,10,0,0" HorizontalAlignment="Center" Width="291" Height="25" VerticalAlignment="Top" SelectionChanged="cbFiSD_SelectionChanged" SelectedIndex="0" >
+                            <ComboBoxItem Content="∅" />
+                            <ComboBoxItem Content="SD"/>
+                        </ComboBox>
+                        <TextBlock Grid.Column="1" Margin="10,0,10,10" Visibility="Hidden" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="25" Foreground="Red" HorizontalAlignment="Center" FontSize="20"><Run Language="pl-pl" Text="WYMAGANA WERYFIKACJA !!!!"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+
+
+                    </Grid>
+                    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="NaN" VerticalAlignment="Stretch" Width="NaN">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="509*"/>
+                            <ColumnDefinition Width="508*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,16,0,0" TextWrapping="Wrap" Text="Próg ∅:" VerticalAlignment="Top" Height="35" FontSize="24" Grid.Column="1"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="310,0,0,0" TextWrapping="Wrap" Text="Próg SD:" VerticalAlignment="Center" FontSize="22" Height="36"/>
+                        <TextBox x:Name="tbFiThreshold" Text="0,00" Margin="99,21,0,22" TextWrapping="Wrap" Width="38" HorizontalAlignment="Left" KeyDown="tbFiThreshold_KeyDown" Grid.Column="1"/>
+                        <TextBox x:Name="tbSdThreshold" Text="0,00" Grid.Column="1" HorizontalAlignment="Left" Margin="398,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="39" KeyDown="tbSdThreshold_KeyDown" Height="24"/>
+
+                    </Grid>
+                    <Grid Grid.ColumnSpan="3" Margin="0,0,0,784" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="557*"/>
+                            <ColumnDefinition Width="543*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="tbDate" Margin="10,23,10,0" TextWrapping="Wrap" OpacityMask="Black" Height="43" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontFamily="Arial" FontWeight="Bold"><Run Language="pl-pl" Text="Wpisz datę badania (dd.mm.rrrr):"/></TextBlock>
+                        <TextBox x:Name="tbInput" TextWrapping="Wrap" KeyDown="tbInput_KeyDown" Background="White" Margin="10,48,10,0" VerticalAlignment="Top" Height="35"/>
+                        <Button x:Name="showButton" Content="4 miesiące" RenderTransformOrigin="0.175,0.1" Background="White" Foreground="Black" BorderBrush="{x:Null}" FontSize="24" FontFamily="Arial" Click="ShowLastFourMonths_Click" OpacityMask="White" Grid.Column="1" Margin="332,53,0,0" Width="176" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+    BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- Zmiana koloru tła po najechaniu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#FFEBEBEB"/>
+                                            <!-- Jasnoszary -->
+                                        </Trigger>
+                                        <!-- Opcjonalnie: zmiana koloru tekstu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button x:Name="weekShowButton" Content="7 dni" RenderTransformOrigin="0.175,0.1" Background="White" Foreground="Black" BorderBrush="{x:Null}" FontSize="24" FontFamily="Arial" Click="SearchFor_Last7Days_Click" OpacityMask="White" HorizontalAlignment="Left" Width="135" Margin="10,53,0,0" Grid.Column="1" Height="30" VerticalAlignment="Top">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+    BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- Zmiana koloru tła po najechaniu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#FFEBEBEB"/>
+                                            <!-- Jasnoszary -->
+                                        </Trigger>
+                                        <!-- Opcjonalnie: zmiana koloru tekstu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button x:Name="currentMonthButton" Content="Bieżący miesiąc" RenderTransformOrigin="0.175,0.1" Background="White" Foreground="Black" BorderBrush="{x:Null}" FontSize="24" FontFamily="Arial" Click="SearchFor_CurrentMonth_Click" OpacityMask="White" Grid.Column="1" HorizontalAlignment="Left" Width="177" Margin="150,53,0,0" Height="30" VerticalAlignment="Top">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- Zmiana koloru tła po najechaniu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#FFEBEBEB"/>
+                                            <!-- Jasnoszary -->
+                                        </Trigger>
+                                        <!-- Opcjonalnie: zmiana koloru tekstu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button x:Name="halfYearShow_Button" Grid.Column="1" Content="6 miesięcy" RenderTransformOrigin="0.175,0.1" Background="White" Foreground="Black" BorderBrush="{x:Null}" FontSize="24" FontFamily="Arial" Click="SearchFor_HalfYear_Click" OpacityMask="White" Margin="513,53,7,0" Height="30" VerticalAlignment="Top">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- Zmiana koloru tła po najechaniu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#FFEBEBEB"/>
+                                            <!-- Jasnoszary -->
+                                        </Trigger>
+                                        <!-- Opcjonalnie: zmiana koloru tekstu -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Label Content="Pokaż wyniki z:" FontSize="24" FontFamily="Arial" Grid.Column="1" HorizontalAlignment="Center" Width="174" Height="38" VerticalAlignment="Top"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Kalkulator">
+                <Grid Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="246*"/>
+                        <ColumnDefinition Width="224*"/>
+                        <ColumnDefinition Width="177*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="225*"/>
+                        <RowDefinition Height="253*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox x:Name="tbR11value" HorizontalAlignment="Left" Margin="162,113,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="44" Height="26" FontSize="18"/>
+                    <TextBox x:Name="tbR21value" HorizontalAlignment="Left" Margin="162,141,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="44" Height="24" RenderTransformOrigin="0.375,0.478" FontSize="18"/>
+                    <TextBlock x:Name="tbRX1value" HorizontalAlignment="Left" Margin="211,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="45" FontSize="20"><Run Language="pl-pl" Text="Rx="/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.284,0.694" Height="25" Width="37" FontSize="20"><Run Language="pl-pl" Text="R1="/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="37" FontSize="20"><Run Language="pl-pl" Text="R2="/></TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="123,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="43" FontSize="20"><Run Language="pl-pl" Text="R1="/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="123,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="43" FontSize="20"><Run Language="pl-pl" Text="Rx="/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBox x:Name="tbR12value" Grid.Column="1" HorizontalAlignment="Left" Margin="166,76,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Height="28" FontSize="18"/>
+                    <TextBox x:Name="tbRx2value" Grid.Column="1" HorizontalAlignment="Left" Margin="166,109,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Height="29" FontSize="18"/>
+                    <TextBlock x:Name="tbR22value" Grid.Column="1" HorizontalAlignment="Left" Margin="211,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="2.059,0.41" Width="198" Height="49" FontSize="20"><Run Language="pl-pl" Text="R2="/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBox x:Name="tbR13value" TextWrapping="Wrap" Text="100" Grid.Column="2" Margin="140,90,0,0" HorizontalAlignment="Left" Width="37" FontSize="18" Height="27" VerticalAlignment="Top"/>
+                    <TextBox  x:Name="tbWt1value" Grid.Column="2" TextWrapping="Wrap" Text="-0.3" RenderTransformOrigin="-0.025,0.838" Margin="182,90,0,0" HorizontalAlignment="Left" Width="39" FontSize="18" Height="27" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="2" TextWrapping="Wrap" RenderTransformOrigin="0.437,1.195" Margin="0,93,276,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Height="26"><Run Language="pl-pl" Text="R1="/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBox x:Name="tbR23value" Grid.Column="2" TextWrapping="Wrap" Text="200" Margin="140,124,0,0" HorizontalAlignment="Left" Width="37" FontSize="18" Height="27" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="2" TextWrapping="Wrap" Margin="96,124,276,0" FontSize="20" Height="27" VerticalAlignment="Top"><Run Language="pl-pl" Text="R2="/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBox x:Name="tbWt2value" Grid.Column="2" TextWrapping="Wrap" Text="0.3" Margin="182,124,0,0" HorizontalAlignment="Left" Width="39" RenderTransformOrigin="0.539,0.559" FontSize="18" Height="27" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbR33value" Grid.Column="2" TextWrapping="Wrap" Text="500" Margin="140,156,0,0" HorizontalAlignment="Left" Width="37" FontSize="18" Height="30" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbWt3value" Grid.Column="2" TextWrapping="Wrap" Text="0.6" Margin="182,156,0,0" HorizontalAlignment="Left" Width="39" FontSize="18" Height="30" VerticalAlignment="Top"/>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="2" Margin="0,157,273,0" HorizontalAlignment="Right" Width="39" Height="28" VerticalAlignment="Top" FontSize="20"><Run Language="pl-pl" Text="R3="/></TextBlock>
+                    <Button x:Name="CalculateButton3" Content="Oblicz" Grid.Column="2" Margin="0,203,0,0" Click="CalculateButton3_Click" HorizontalAlignment="Center" Width="389" FontSize="20" Height="45" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbWtXvalue" HorizontalAlignment="Left" Margin="255,122,0,0" TextWrapping="Wrap" RenderTransformOrigin="0.02,0.065" Width="134" Grid.Column="2" FontSize="20" Height="60" VerticalAlignment="Top"><Run Language="pl-pl" Text="Wt(Rx)="/></TextBlock>
+                    <Button x:Name="CalculateButton2" Content="Oblicz" Grid.Column="1" Margin="92,203,90,202" Click="CalculateButton2_Click" FontSize="20"/>
+                    <Button x:Name="CalculateButton1" Content="Oblicz" Grid.Column="0" Margin="99,0,202,205" Click="CalculateButton1_Click" Height="42" VerticalAlignment="Bottom" FontSize="20"/>
+                    <TextBlock Grid.Column="2" TextWrapping="Wrap" RenderTransformOrigin="0.437,1.195" Margin="0,59,242,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Height="24" Width="14"><Run Text="Ω"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock Grid.Column="2" TextWrapping="Wrap" RenderTransformOrigin="0.437,1.195" Margin="184,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="39" Width="37" FontSize="14"><Run Language="pl-pl" Text="Wsp. Temp."/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,0,402" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="389" Height="38" FontSize="14" FontWeight="Bold" TextAlignment="Center"><Run Text="Równoległe połaczenie rezystorów - wartość współczynnika temperaturowego&#x9;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;"/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="376,33,0,0" TextWrapping="Wrap" Text="Równoległe połaczenie rezystorów - wartość wypadkowa" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
